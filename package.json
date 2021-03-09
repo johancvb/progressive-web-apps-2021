@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/johancvb/progressive-web-apps-2021/issues"
   },
-  "homepage": "https://github.com/johancvb/progressive-web-apps-2021#readme"
+  "homepage": "https://github.com/johancvb/progressive-web-apps-2021#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
 }
