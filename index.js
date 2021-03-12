@@ -1,5 +1,4 @@
 const express = require('express');
-const request = require('request');
 const axios = require('axios');
 
 const config = {
@@ -31,7 +30,7 @@ app.get('/teams', function (req, res) {
 			
 			res.render('teams', {
 				title: 'Teams', // We use this for the page title, see views/partials/head.ejs
-				data: response.data.data //[0].name
+				teams_data: response.data.data
 			});
 		})
 		.catch(function (error) {

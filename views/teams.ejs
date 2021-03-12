@@ -1,10 +1,11 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
-<%- data.forEach(function(team){ %>
-    <!-- <a>
-        <img src="./nba_app/img/<%=(data.id %>).png" alt="">
-        <h1><%=(data.full_name)%></h1>
-        
-    </a> -->
-<%- }) %>
+<h1 id=open_h1>NBA teams</h1>
+<div class="container">
+    <a>
+        <img src="./img/<%- teams_data[0].id%>.png" alt="">
+        <h1><%- teams_data[0].full_name %></h1>
+    
+    </a>
+</div>
 <%- include("./partials/footer.ejs") %>
