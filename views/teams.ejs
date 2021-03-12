@@ -1,4 +1,10 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
-<%- postData %>
+<%- data.forEach(function(team){ %>
+    <!-- <a>
+        <img src="./nba_app/img/<%=(data.id %>).png" alt="">
+        <h1><%=(data.full_name)%></h1>
+        
+    </a> -->
+<%- }) %>
 <%- include("./partials/footer.ejs") %>
