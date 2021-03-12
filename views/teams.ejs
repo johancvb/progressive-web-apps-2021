@@ -1,11 +1,18 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
-<h1 id=open_h1>NBA teams</h1>
-<div class="container">
-    <a>
-        <img src="./img/<%- teams_data[0].id%>.png" alt="">
-        <h1><%- teams_data[0].full_name %></h1>
+<div class="app">
+
+    <h1 id=open_h1>NBA teams</h1>
+        <div class="container">
+            <% teams_data.forEach(function(team){ %>
+            <a href="teams/<%-team.name%>">
+                <img src="./img/<%-team.id%>.png" alt="">
+                <h1><%-team.full_name%></h1>
     
-    </a>
+            </a>
+            <% }) %>
+
+        </div>
+
 </div>
 <%- include("./partials/footer.ejs") %>

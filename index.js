@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 	res.redirect('/teams');
 });
 
-// Create a route for our overview page
+// Create overview page
 app.get('/teams', function (req, res) {
 
 	axios.get('https://free-nba.p.rapidapi.com/teams', {
@@ -37,6 +37,29 @@ app.get('/teams', function (req, res) {
 			// handle error
 			console.log(error);
 		});
+});
+
+// Create detail page
+app.get('/teams/team', function (req, res) {
+
+	// axios.get('https://free-nba.p.rapidapi.com/teams', {
+	// 	headers: {
+	// 		"x-rapidapi-key": "f13b636f5fmshaea25718ef36c73p1829b0jsncd19791a2844",
+	// 		"x-rapidapi-host": "free-nba.p.rapidapi.com"
+	// 	}
+	// })
+	// 	.then(function (response) {
+	// 		// handle success
+			
+	// 		res.render('teams', {
+	// 			title: 'Teams', // We use this for the page title, see views/partials/head.ejs
+	// 			teams_data: response.data.data
+	// 		});
+	// 	})
+	// 	.catch(function (error) {
+	// 		// handle error
+	// 		console.log(error);
+	// 	});
 });
 
 // Actually set up the server
