@@ -1,10 +1,10 @@
 const express = require('express');
 const axios = require('axios');
+const { response } = require('express');
 
 const config = {
 	port: 3000
 }
-
 
 const app = express();
 
@@ -27,9 +27,9 @@ app.get('/teams', function (req, res) {
 	})
 		.then(function (response) {
 			// handle success
-			
+
 			res.render('teams', {
-				title: 'Teams', // We use this for the page title, see views/partials/head.ejs
+				title: 'Teams',
 				teams_data: response.data.data
 			});
 		})
@@ -40,26 +40,44 @@ app.get('/teams', function (req, res) {
 });
 
 // Create detail page
-app.get('/teams/team', function (req, res) {
+app.get('/teams/:team', async function (req, res) {
+	let allPlayers = [];
 
-	// axios.get('https://free-nba.p.rapidapi.com/teams', {
-	// 	headers: {
-	// 		"x-rapidapi-key": "f13b636f5fmshaea25718ef36c73p1829b0jsncd19791a2844",
-	// 		"x-rapidapi-host": "free-nba.p.rapidapi.com"
-	// 	}
-	// })
-	// 	.then(function (response) {
-	// 		// handle success
+	for (var i = 0; i < 36; i++) {
+
+		await axios.get(`https://free-nba.p.rapidapi.com/players?page=${i}&per_page=100`, {
+			headers: {
+				"x-rapidapi-key": "f13b636f5fmshaea25718ef36c73p1829b0jsncd19791a2844",
+				"x-rapidapi-host": "free-nba.p.rapidapi.com"
+			}
+		})
+			.then(function (response) {
+				// handle success
+
+				allPlayers.push(response.data.data)
 			
-	// 		res.render('teams', {
-	// 			title: 'Teams', // We use this for the page title, see views/partials/head.ejs
-	// 			teams_data: response.data.data
-	// 		});
-	// 	})
-	// 	.catch(function (error) {
-	// 		// handle error
-	// 		console.log(error);
-	// 	});
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			});
+	}
+	console.log(allPlayers)
+	res.render('team', {
+		title: 'team',
+		allPlayers: allPlayers,
+		teamName: req.params.team
+		
+	})
+
+});
+
+// Create a /offline  route
+app.get('/offline', function (req, res) {
+	// Send a plain string using res.send();
+	res.render('offline', {
+		pageTitle: `Offline`
+	})
 });
 
 // Actually set up the server

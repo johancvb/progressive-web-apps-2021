@@ -1,4 +1,28 @@
-<%- include ./partials/head.ejs %>
-<%- include ./partials/header.ejs %>
+<%- include("./partials/head.ejs") %>
+<%- include("./partials/header.ejs") %>
 
-<%- include ./partials/footer.ejs %>
+
+
+<div class="app"> 
+<div id="team-detail">
+<div class="players">
+
+<% allPlayers.forEach(function(player){ %>
+    
+        <details>
+            <summary>
+                <h1>
+                    <%- player.first_name %>
+                    <%- player.last_name %>
+                </h1>
+            </summary>
+                <h2>Height: <%- player.height_feet %>'<%- player.height_inches %></h2>
+                <h2>Position: <%- player.position %></h2>
+                <h2>Weight: <%- player.weight_pounds %> pounds</h2>
+        </details>  
+    
+<% }) %>
+</div>
+</div>
+</div>
+<%- include("./partials/footer.ejs") %>

@@ -1,0 +1,15 @@
+
+{
+    "name": "NBA Players Index",
+    "short_name": "NBA WebApp",
+    "theme_color": "#000000",
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "icons": [{
+        "src": "/img/nba.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }],
+    "scope": "/",
+    "start_url": "/"
+}
