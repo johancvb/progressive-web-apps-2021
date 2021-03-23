@@ -42,6 +42,7 @@ app.get('/teams', function (req, res) {
 // Create detail page
 app.get('/teams/:team', async function (req, res) {
 	let allPlayers = [];
+	const playersArr = [];
 
 	for (var i = 0; i < 36; i++) {
 
@@ -62,12 +63,18 @@ app.get('/teams/:team', async function (req, res) {
 				console.log(error);
 			});
 	}
-	console.log(allPlayers)
+
+	allPlayers.forEach(allPlayers => {
+		for (const player of allPlayers) {
+			if (player.team.name === req.params.team) {
+				playersArr.push(player)
+			}
+		}
+	});
+
 	res.render('team', {
 		title: 'team',
-		allPlayers: allPlayers,
-		teamName: req.params.team
-		
+		data: playersArr
 	})
 
 });
