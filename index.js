@@ -10,7 +10,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
 	res.redirect('/teams');
@@ -44,7 +45,7 @@ app.get('/teams/:team', async function (req, res) {
 	let allPlayers = [];
 	const playersArr = [];
 
-	for (var i = 0; i < 36; i++) {
+	for (var i = 1; i < 2; i++) {
 
 		await axios.get(`https://free-nba.p.rapidapi.com/players?page=${i}&per_page=100`, {
 			headers: {

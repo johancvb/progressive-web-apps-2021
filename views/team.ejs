@@ -8,7 +8,6 @@
 <div class="players">
 
 <% data.forEach(function(player){ %>
-    
         <details>
             <summary>
                 <h1>
@@ -20,9 +19,9 @@
                 <h2>Position: <%- player.position %></h2>
                 <h2>Weight: <%- player.weight_pounds %> pounds</h2>
         </details>  
-    
 <% }) %>
 </div>
 </div>
+<button class="morePlayers">Load more players</button>
 </div>
 <%- include("./partials/footer.ejs") %>

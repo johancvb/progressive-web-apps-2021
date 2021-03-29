@@ -1,6 +1,10 @@
 const CORE_CACHE = 1
 const CORE_CACHE_NAME = `core-v${CORE_CACHE}`
-const CORE_ASSETS = ["/manifest.json", "/offline", "/css/styles.css"]
+const CORE_ASSETS = [
+    "/offline",
+    "/manifest.json", 
+    "/css/styles.css"
+];
 
 self.addEventListener('install', (event) => {
     console.log("Installed")
@@ -32,13 +36,13 @@ self.addEventListener("fetch", (event) => {
                         return fetch(event.request)
                             .then(response => {
                                 cache.put(event.request, response.clone())
-                                return resp
+                                return response
                             })
                     })
             })
             .catch((err) => {
                 return caches.open(CORE_CACHE_NAME)
-                    .then(cache => cache.match('/offline'))
+                    .then(cache => cache.match("/offline"))
             })
 
     )
