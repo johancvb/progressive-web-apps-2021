@@ -126,6 +126,6 @@ app.get('/offline', function (req, res) {
 });
 
 // Actually set up the server
-app.listen(config.port, function () {
-	console.log(`Application started on port: ${config.port}`);
+app.listen(port, function () {
+	console.log(`Application started on port: ${port}`);
 });
