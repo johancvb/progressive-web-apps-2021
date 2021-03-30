@@ -19,7 +19,6 @@ app.get('/', function (req, res) {
 
 // Create overview page
 app.get('/teams', function (req, res) {
-
 	axios.get('https://free-nba.p.rapidapi.com/teams', {
 		headers: {
 			"x-rapidapi-key": "f13b636f5fmshaea25718ef36c73p1829b0jsncd19791a2844",
@@ -75,10 +74,49 @@ app.get('/teams/:team', async function (req, res) {
 
 	res.render('team', {
 		title: 'team',
-		data: playersArr
+		data: playersArr,
+		param: req.params.team  
 	})
 
 });
+
+app.get('/teams/:team/more', async function (req, res) {
+	let allPlayers = [];
+	const playersArr = [];
+
+	for (var i = 1; i < 36; i++) {
+
+		await axios.get(`https://free-nba.p.rapidapi.com/players?page=${i}&per_page=100`, {
+			headers: {
+				"x-rapidapi-key": "f13b636f5fmshaea25718ef36c73p1829b0jsncd19791a2844",
+				"x-rapidapi-host": "free-nba.p.rapidapi.com"
+			}
+		})
+			.then(function (response) {
+				// handle success
+
+				allPlayers.push(response.data.data)
+			
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			});
+	}
+
+	allPlayers.forEach(allPlayers => {
+		for (const player of allPlayers) {
+			if (player.team.name === req.params.team) {
+				playersArr.push(player)
+			}
+		}
+	});
+	
+	res.render('more', {
+		title: 'more',
+		moreData: playersArr
+	})
+})
 
 // Create a /offline  route
 app.get('/offline', function (req, res) {
