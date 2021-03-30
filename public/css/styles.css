@@ -123,57 +123,12 @@ header h1 {
     height: 100px;
 }
 
-
-.loader {
-    opacity: 1;
-    color: black;
-    text-align: center;
-    width: 20%;
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
-}
-
-.loader h1 {
-    width: 100%;
-    padding-bottom: 40px; 
-    font-size: 2.9em;
-    font-weight: 500;
-}
-
-.loader.hidden {
-    display: none;
-}
-
-@keyframes pulse {
-    0%     { opacity: .1; }
-    20%    { opacity: .8; }
-    100%   { opacity: .1; }
-}
-
-svg path {
-    animation-duration: 1s;
-    animation-name: pulse;
-    animation-iteration-count: infinite;
-    color: black;
-}
-
-.bb-7 { animation-delay: -1s }
-.bb-6 { animation-delay: -.875s }
-.bb-5 { animation-delay: -.75s }
-.bb-4 { animation-delay: -.625s }
-.bb-3 { animation-delay: -.5s }
-.bb-2 { animation-delay: -.375s }
-.bb-1 { animation-delay: -.25s }
-.bb-0 { animation-delay: -.125s }
-
-
-#searchBar {
-    width: 50%;
-    height: 40px;
-    font-size: 2.3em;
-    font-family: Arial, Helvetica, sans-serif;
+#moreBtn {
+    background: white;
+    text-decoration: none;
     outline: none;
+    font-size: 1.5em;
+    cursor: pointer;
     padding: 10px;
-    margin-top: 50px;
+    color: black;
 }

@@ -2,15 +2,13 @@ const express = require('express');
 const axios = require('axios');
 const { response } = require('express');
 
-const config = {
-	port: 3000
-}
+const port = 3000;
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-// app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
@@ -80,6 +78,7 @@ app.get('/teams/:team', async function (req, res) {
 
 });
 
+// Create a page with more players
 app.get('/teams/:team/more', async function (req, res) {
 	let allPlayers = [];
 	const playersArr = [];

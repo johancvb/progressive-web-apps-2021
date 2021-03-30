@@ -6,13 +6,10 @@
         <div class="container">
             <% teams_data.forEach(function(team){ %>
             <a href="teams/<%-team.name%>">
-                <img src="./img/<%-team.id%>.png" alt="">
-                <h1><%-team.full_name%></h1>
-    
+                <img loading="lazy" src="./img/<%-team.id%>.png" alt="">
+                <h1><%-team.full_name%></h1>   
             </a>
             <% }) %>
-
         </div>
-
 </div>
 <%- include("./partials/footer.ejs") %>
