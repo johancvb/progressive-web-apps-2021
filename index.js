@@ -2,8 +2,9 @@ const express = require('express');
 const axios = require('axios');
 const { response } = require('express');
 
-const port = 6969;
 const app = express();
+
+const port = 6969;
 
 app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
 app.set('view engine', 'ejs');
