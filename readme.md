@@ -46,6 +46,10 @@ De gebruiker moest dus heel lang wachten voordat het resultaat zag. Ik heb daaro
 <br><br>
 Dit zorgt voor minder wachttijd bij het klikken van een team, en dus zorgt dit voor een prettigere gebruikerservaring.
 <br><br>
+<br>
+Ook heb ik gebruik gemaakt van "Lazy loading", zodat de plaatjes op mijn overview page pas in worden geladen als er naar beneden gescrolld wordt.
+<br>
+Ook dit zorgt voor een snelle laadtijd, en een betere gebruikerservaring.
 
 ## 🔄 Git clone
 Om de repository van PWA te clonen, open je de terminal in je editor. Vervolgens navigeer je met "cd" naar de juiste map.
