@@ -3,10 +3,9 @@ const axios = require('axios');
 const { response } = require('express');
 
 const port = 6969;
-app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
-
 const app = express();
 
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static('public'));
