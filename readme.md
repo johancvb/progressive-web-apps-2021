@@ -1,6 +1,6 @@
 # Live link naar demo:
 
-https://polar-oasis-14072.herokuapp.com
+https://ancient-journey-15993.herokuapp.com/
 
 # 🏀 NBA Players Index
 
