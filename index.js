@@ -1,15 +1,21 @@
 const express = require('express');
 const axios = require('axios');
-const { response } = require('express');
+const compression = require('compression');
+const gulp = require('gulp');
+const uglify = require('gulp-uglify')
+const cleanCSS = require('gulp-clean-css');
 
 const app = express();
 
 const port = 6969;
 
-app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static('public'));
+app.use(compression({
+	level: 9
+}))
 
 app.get('/', function (req, res) {
 	res.redirect('/teams');
@@ -125,7 +131,20 @@ app.get('/offline', function (req, res) {
 	})
 });
 
+
+// Minify CSS
+gulp.src('public/css/*.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('public/dist'))
+
+
+// Minify JS
+
+gulp.src('public/js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('public/dist'))
+
+
 // Actually set up the server
-app.listen(port, function () {
-	console.log(`Application started on port: ${port}`);
-});
+
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}, http://localhost:${port}`));
