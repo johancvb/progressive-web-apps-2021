@@ -46,6 +46,13 @@ De gebruiker moest dus heel lang wachten voordat het resultaat zag. Ik heb daaro
 <br><br>
 Dit zorgt voor minder wachttijd bij het klikken van een team, en dus zorgt dit voor een prettigere gebruikerservaring.
 <br><br>
+Tijdens dit project heb ik gebruik gemaakt van een paar verschillende packages om zo de performance te upgraden. De packages die ik heb gebruikt zijn:
+
+- npm compression
+- gulp
+- gulp-clean-css
+- gulp-uglify
+
 <br>
 Ook heb ik gebruik gemaakt van "Lazy loading", zodat de plaatjes op mijn overview page pas in worden geladen als er naar beneden gescrolld wordt.
 <br>
